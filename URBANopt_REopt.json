@@ -67,7 +67,7 @@
         "display_name_short": "electricity_fans",
         "metadata_id": null,
         "report": "scenario_report",
-        "report_id": "highefficiency_scenario",
+        "report_id": "",
         "reporting_periods": 0,
         "var_name": "end_uses",
         "end_use": "electricity_kwh",
