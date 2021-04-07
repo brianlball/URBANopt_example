@@ -31,12 +31,12 @@ class UrbanOptScenarios < OpenStudio::Measure::ModelMeasure
     scenario_file_name.setDescription('This is the name of the Scenario file to apply changes to. (no .csv)')
     args << scenario_file_name
        
-    # mixed_type_1_percentage
-    mixed_type_1_percentage = OpenStudio::Measure::OSArgument.makeDoubleArgument('mixed_type_1_percentage', true)
-    mixed_type_1_percentage.setDisplayName('mixed_type_1_percentage')
-    mixed_type_1_percentage.setDescription('mixed_type_1_percentage')
-    mixed_type_1_percentage.setDefaultValue(0)
-    args << mixed_type_1_percentage
+    # scenario_number
+    scenario_number = OpenStudio::Measure::OSArgument.makeDoubleArgument('scenario_number', true)
+    scenario_number.setDisplayName('scenario_number')
+    scenario_number.setDescription('scenario_number')
+    scenario_number.setDefaultValue(0)
+    args << scenario_number
     
     return args
   end
@@ -52,7 +52,24 @@ class UrbanOptScenarios < OpenStudio::Measure::ModelMeasure
 
     # assign the user inputs to variables
     scenario_file_name = runner.getStringArgumentValue('scenario_file_name', user_arguments)
-    mixed_type_1_percentage = runner.getDoubleArgumentValue('mixed_type_1_percentage', user_arguments)
+    scenario_number = runner.getDoubleArgumentValue('scenario_number', user_arguments)
+    
+    #hash of scenarios
+    hash_of_scenarios = {1 => 'baseline_scenario',
+                         2 => 'highefficiency_scenario',
+                         3 => 'REopt_scenario',
+                         4 => 'evcharging_scenario',
+                         5 => 'thermalstorage_scenario'
+                        }
+    #check if scenario_number is used.
+    if scenario_number != 0
+      runner.registerInfo("replacing argument scenario_file_name: #{scenario_file_name} with scenario_number: #{scenario_number}")
+      if hash_of_scenarios[scenario_number.round].nil?
+        runner.registerError("scenario_number: #{scenario_number} is not in hash_of_scenarios!")
+        return false
+      end
+      scenario_file_name = hash_of_scenarios[scenario_number.round]
+    end
     
     #TODO try and get simulation_dir value
     #scenario_file_override = "#{simulation_dir}/urbanopt/scenario_file_override.json"

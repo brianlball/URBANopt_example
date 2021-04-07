@@ -357,16 +357,16 @@
               "display_name_short": "Scenario File name",
               "name": "scenario_file_name",
               "value_type": "string",
-              "default_value": "highefficiency_scenario",
-              "value": "highefficiency_scenario"
+              "default_value": "thermalstorage_scenario",
+              "value": "thermalstorage_scenario"
             },
             {
-              "display_name": "mixed_type_1_percentage",
-              "display_name_short": "mixed_type_1_percentage",
-              "name": "mixed_type_1_percentage",
+              "display_name": "scenario_number",
+              "display_name_short": "scenario_number",
+              "name": "scenario_number",
               "value_type": "double",
-              "default_value": "1",
-              "value": "1"
+              "default_value": "0",
+              "value": "0"
             }
           ],
           "workflow_index": 2

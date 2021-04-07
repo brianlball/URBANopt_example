@@ -20,9 +20,9 @@
       <model_dependent>false</model_dependent>
     </argument>
     <argument>
-      <name>mixed_type_1_percentage</name>
-      <display_name>mixed_type_1_percentage</display_name>
-      <description>mixed_type_1_percentage</description>
+      <name>scenario_number</name>
+      <display_name>scenario_number</display_name>
+      <description>scenario_number</description>
       <type>Double</type>
       <required>true</required>
       <model_dependent>false</model_dependent>
