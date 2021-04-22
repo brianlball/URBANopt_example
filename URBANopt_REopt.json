@@ -61,8 +61,8 @@
         "objective_function_target": 0,
         "objective_function_group": 4,
         "scaling_factor": null,
-        "display_name": "comfort_result",
-        "display_name_short": "comfort_result",
+        "display_name": "PMV",
+        "display_name_short": "PMV",
         "metadata_id": null,
         "report": "scenario_report",
         "report_id": "",
@@ -70,7 +70,7 @@
         "var_name": "comfort_result",
         "end_use": "",
         "end_use_category": "",
-        "comfort_result_category": "time_setpoint_not_met_during_occupied_cooling",
+        "comfort_result_category": "hours_out_of_comfort_bounds_PMV",
         "visualize": true,
         "export": true,
         "variable_type": "double"
@@ -361,10 +361,14 @@
         "debug_messages": 1,
         "max_queued_jobs": 32,
         "objective_functions": [
-            "urban_opt_report.electricity",
-            "urban_opt_report_2.natural_gas",
-            "electricity_fans",
-            "electricity_fans2"
+            "electricity_kwh",
+            "natural_gas_kwh",
+            "electricity_produced_kwh",
+            "hours_out_of_comfort_bounds_PMV",
+            "time_setpoint_not_met_during_occupied_cooling",
+            "time_setpoint_not_met_during_occupied_heating",
+            "time_setpoint_not_met_during_occupied_hours",
+            "water_qbft"
         ]
       },
       "analysis_type": "morris"
