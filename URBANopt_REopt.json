@@ -277,8 +277,8 @@
               "display_name": "scenario_number",
               "display_name_short": "scenario_number",
               "variable_type": "variable",
-              "minimum": 1,
-              "maximum": 1,
+              "minimum": 0,
+              "maximum": 5,
               "static_value": 5,
               "uuid": "",
               "version_uuid": "",
@@ -313,11 +313,11 @@
                   },
                   {
                     "name": "lower_bounds",
-                    "value": 1
+                    "value": 0
                   },
                   {
                     "name": "upper_bounds",
-                    "value": 1
+                    "value": 5
                   },
                   {
                     "name": "modes",
@@ -340,12 +340,17 @@
         }
       ],
       "algorithm": {
-        "r": 10,
-        "r_2": 20,
+        "random_seed": 1979,
+        "random_seed_2": 1973,
+        "order": 1,
+        "nboot": 10,
+        "conf": 0.95,
+        "type": "sobol",
+        "r": 4,
+        "r_2": 6,
         "levels": 4,
         "grid_jump": 2,
-        "type": "oat",
-        "number_of_samples": 60,
+        "number_of_samples": 15,
         "sample_method": "all_variables",
         "generations": 1,
         "tournament_size": 2,
@@ -359,7 +364,7 @@
         "seed": 1973,
         "failed_f_value": 1000000000000000000,
         "debug_messages": 1,
-        "max_queued_jobs": 32,
+        "max_queued_jobs": 42,
         "objective_functions": [
             "electricity_kwh",
             "natural_gas_kwh",
@@ -371,7 +376,7 @@
             "water_qbft"
         ]
       },
-      "analysis_type": "morris"
+      "analysis_type": "sobol"
     },
     "file_format_version": 1,
     "cli_debug": "--debug",
