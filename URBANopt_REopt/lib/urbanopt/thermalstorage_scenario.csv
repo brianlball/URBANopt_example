@@ -1,3 +1,3 @@
-Feature Id,Feature Name,Mapper Class
-1,Mixed_use 1,URBANopt::Scenario::ThermalStorageMapper
-2,Restaurant 1,URBANopt::Scenario::ThermalStorageMapper
+Feature Id,Feature Name,Mapper Class,REopt Assumptions
+1,Mixed_use 1,URBANopt::Scenario::ThermalStorageMapper,multiPV_assumptions.json
+2,Restaurant 1,URBANopt::Scenario::ThermalStorageMapper,multiPV_assumptions.json

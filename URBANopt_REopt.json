@@ -3,6 +3,8 @@
     "display_name": "URBANopt_REopt",
     "name": "URBANopt_REopt",
     "urbanopt": true,
+    "reopt": true,
+    "reopt_type": "scenario",
     "output_variables": [
       {
         "objective_function": true,
@@ -173,20 +175,28 @@
           "taxonomy": "Whole Building.Space Types",
           "arguments": [
             {
+              "display_name": "scenario_file_name",
+              "display_name_short": "scenario_file_name",
+              "name": "scenario_file_name",
+              "value_type": "string",
+              "default_value": "base_assumptions",
+              "value": "multiPV_assumptions"
+            },
+            {
               "display_name": "category_key",
               "display_name_short": "category_key",
               "name": "category_key",
               "value_type": "string",
-              "default_value": "Financial",
-              "value": "Financial"
+              "default_value": "Storage",
+              "value": "Storage"
             },
             {
               "display_name": "sub_category_key",
               "display_name_short": "sub_category_key",
               "name": "sub_category_key",
               "value_type": "string",
-              "default_value": "analysis_years",
-              "value": "analysis_years"
+              "default_value": "installed_cost_us_dollars_per_kw",
+              "value": "installed_cost_us_dollars_per_kw"
             }
           ],
           "variables": [
@@ -196,15 +206,15 @@
               "display_name_short": "value",
               "name": "value",
               "value_type": "double",
-              "default_value": 33,
+              "default_value": 840,
               "value": 0
               },
               "display_name": "value",
               "display_name_short": "value",
               "variable_type": "variable",
               "minimum": 0,
-              "maximum": 50,
-              "static_value": 33,
+              "maximum": 1680,
+              "static_value": 1000,
               "uuid": "",
               "version_uuid": "",
               "variable": true,
@@ -217,11 +227,11 @@
                   },
                   {
                     "name": "upper_bounds",
-                    "value": 50
+                    "value": 1680
                   },
                   {
                     "name": "modes",
-                    "value": 25
+                    "value": 840
                   },
                   {
                     "name": "delta_x",
@@ -350,7 +360,7 @@
         "r_2": 6,
         "levels": 4,
         "grid_jump": 2,
-        "number_of_samples": 15,
+        "number_of_samples": 5,
         "sample_method": "all_variables",
         "generations": 1,
         "tournament_size": 2,
