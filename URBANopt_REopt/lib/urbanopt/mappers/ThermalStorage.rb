@@ -66,15 +66,6 @@ module URBANopt
           OpenStudio::Extension.set_measure_argument(osw, 'add_central_ice_storage', 'dr_dur', 3.0)
         end
 
-        if feature_names[0].to_s == 'Restaurant 1'
-          OpenStudio::Extension.set_measure_argument(osw, 'add_packaged_ice_storage', '__SKIP__', false)
-          OpenStudio::Extension.set_measure_argument(osw, 'add_packaged_ice_storage', 'size_mult', 1.0)
-          OpenStudio::Extension.set_measure_argument(osw, 'add_packaged_ice_storage', 'charge_start', 22)
-          OpenStudio::Extension.set_measure_argument(osw, 'add_packaged_ice_storage', 'charge_end', 7)
-          OpenStudio::Extension.set_measure_argument(osw, 'add_packaged_ice_storage', 'discharge_start', 12)
-          OpenStudio::Extension.set_measure_argument(osw, 'add_packaged_ice_storage', 'discharge_end', 18)
-        end
-
         return osw
       end
     end
