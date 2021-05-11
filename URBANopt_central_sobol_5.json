@@ -1,7 +1,7 @@
 {
   "analysis": {
-    "display_name": "URBANopt_central",
-    "name": "URBANopt_central",
+    "display_name": "URBANopt_central_sobol_5",
+    "name": "URBANopt_central_sobol_5",
     "urbanopt": true,
     "reopt": false,
     "reopt_type": "scenario",
@@ -280,78 +280,14 @@
               "value_type": "string",
               "default_value": "thermalstorage_scenario",
               "value": "thermalstorage_scenario"
-            }
-          ],
-          "variables": [
+            },
             {
-              "argument": {
                 "display_name": "scenario_number",
                 "display_name_short": "scenario_number",
                 "name": "scenario_number",
                 "value_type": "double",
-                "default_value": "0",
-                "value": "0"
-              },
-              "display_name": "scenario_number",
-              "display_name_short": "scenario_number",
-              "variable_type": "variable",
-              "minimum": 0,
-              "maximum": 5,
-              "static_value": 5,
-              "uuid": "",
-              "version_uuid": "",
-              "variable": true,
-              "uncertainty_description": {
-                "type": "discrete",
-                "attributes": [
-                  {
-                    "name": "discrete",
-                    "values_and_weights": [
-                      {
-                        "value": 1,
-                        "weight": 0.0
-                      },
-                      {
-                        "value": 2,
-                        "weight": 0.0
-                      },
-                      {
-                        "value": 3,
-                        "weight": 0.0
-                      },
-                      {
-                        "value": 4,
-                        "weight": 0.0
-                      },
-                      {
-                        "value": 5,
-                        "weight": 1.0
-                      }
-                    ]
-                  },
-                  {
-                    "name": "lower_bounds",
-                    "value": 0
-                  },
-                  {
-                    "name": "upper_bounds",
-                    "value": 5
-                  },
-                  {
-                    "name": "modes",
-                    "value": 1
-                  },
-                  {
-                    "name": "delta_x",
-                    "value": 1
-                  },
-                  {
-                    "name": "stddev",
-                    "value": 1
-                  }
-                ]
-              },
-              "workflow_index": 0
+                "default_value": "5",
+                "value": "5"
             }
           ],
           "workflow_index": 1
@@ -363,12 +299,12 @@
         "order": 1,
         "nboot": 10,
         "conf": 0.95,
-        "type": "oat",
+        "type": "sobol",
         "r": 4,
         "r_2": 6,
         "levels": 4,
         "grid_jump": 2,
-        "number_of_samples": 32,
+        "number_of_samples": 50,
         "sample_method": "all_variables",
         "generations": 6,
         "tournament_size": 2,
@@ -394,7 +330,7 @@
             "water_qbft"
         ]
       },
-      "analysis_type": "nsga_nrel"
+      "analysis_type": "sobol"
     },
     "file_format_version": 1,
     "cli_debug": "--debug",
