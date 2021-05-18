@@ -166,97 +166,6 @@
     "problem": {
       "workflow": [
         {
-          "name": "urban_opt_reopt",
-          "display_name": "UrbanOpt Reopt",
-          "measure_type": "RubyMeasure",
-          "measure_definition_class_name": "UrbanOptReopt",
-          "measure_definition_directory": "./measures/urban_opt_reopt",
-          "measure_definition_directory_local": "C:\\Projects\\OS-PAT-export\\sample_projects\\SEB_calibration_NSGA_2013\\measures\\ReduceElectricEquipmentLoadsByPercentage",
-          "measure_definition_display_name": "UrbanOptReopt",
-          "measure_definition_name": "urban_opt_reopt",
-          "measure_definition_name_xml": null,
-          "measure_definition_uuid": "07a76483-233f-4be7-8f94-d1187bd3c34e",
-          "measure_definition_version_uuid": "00383259-b9c0-4425-996a-838af1101c3d",
-          "uuid": "07a76483-233f-4be7-8f94-d1187bd3c34e",
-          "version_uuid": "00383259-b9c0-4425-996a-838af1101c3d",
-          "description": "Change UrbanOpt Space percentages",
-          "taxonomy": "Whole Building.Space Types",
-          "arguments": [
-            {
-              "display_name": "scenario_file_name",
-              "display_name_short": "scenario_file_name",
-              "name": "scenario_file_name",
-              "value_type": "string",
-              "default_value": "base_assumptions",
-              "value": "multiPV_assumptions"
-            },
-            {
-              "display_name": "category_key",
-              "display_name_short": "category_key",
-              "name": "category_key",
-              "value_type": "string",
-              "default_value": "Storage",
-              "value": "Storage"
-            },
-            {
-              "display_name": "sub_category_key",
-              "display_name_short": "sub_category_key",
-              "name": "sub_category_key",
-              "value_type": "string",
-              "default_value": "installed_cost_us_dollars_per_kw",
-              "value": "installed_cost_us_dollars_per_kw"
-            }
-          ],
-          "variables": [
-            {
-              "argument": {
-              "display_name": "value",
-              "display_name_short": "value",
-              "name": "value",
-              "value_type": "double",
-              "default_value": 840,
-              "value": 0
-              },
-              "display_name": "value",
-              "display_name_short": "value",
-              "variable_type": "variable",
-              "minimum": 0,
-              "maximum": 1680,
-              "static_value": 1000,
-              "uuid": "",
-              "version_uuid": "",
-              "variable": true,
-              "uncertainty_description": {
-                "type": "uniform",
-                "attributes": [
-                  {
-                    "name": "lower_bounds",
-                    "value": 0
-                  },
-                  {
-                    "name": "upper_bounds",
-                    "value": 1680
-                  },
-                  {
-                    "name": "modes",
-                    "value": 840
-                  },
-                  {
-                    "name": "delta_x",
-                    "value": 0
-                  },
-                  {
-                    "name": "stddev",
-                    "value": 26.6667
-                  }
-                ]
-              },
-              "workflow_index": 0
-            }
-          ],
-          "workflow_index": 0
-        },
-        {
           "name": "urban_opt_scenarios",
           "display_name": "UrbanOpt Scenarios",
           "measure_type": "RubyMeasure",
@@ -290,7 +199,7 @@
                 "value": "5"
             }
           ],
-          "workflow_index": 1
+          "workflow_index": 0
         }
       ],
       "algorithm": {
@@ -510,48 +419,6 @@
             }
         },
         {
-            "name": "inter_sp",
-            "mapper": "ThermalStorage",
-            "uo_measure": "add_central_ice_storage",
-            "display_name": "central_ice_storage inter_sp",
-            "display_name_short": "central_ice_storage_inter_sp",
-            "variable_type": "variable",
-            "value_type": "double",
-            "default_value": 1,
-            "value": 1,
-            "minimum": 45,
-            "maximum": 50,
-            "static_value": 47.0,
-            "uuid": "",
-            "version_uuid": "",
-            "variable": true,
-            "uncertainty_description": {
-                "type": "uniform",
-                "attributes": [
-                    {
-                        "name": "lower_bounds",
-                        "value": 45
-                    },
-                    {
-                        "name": "upper_bounds",
-                        "value": 50
-                    },
-                    {
-                        "name": "modes",
-                        "value": 47
-                    },
-                    {
-                        "name": "delta_x",
-                        "value": 30
-                    },
-                    {
-                        "name": "stddev",
-                        "value": 26.6667
-                    }
-                ]
-            }
-        },
-        {
             "name": "chg_sp",
             "mapper": "ThermalStorage",
             "uo_measure": "add_central_ice_storage",
@@ -581,48 +448,6 @@
                     {
                         "name": "modes",
                         "value": 25.0
-                    },
-                    {
-                        "name": "delta_x",
-                        "value": 30
-                    },
-                    {
-                        "name": "stddev",
-                        "value": 26.6667
-                    }
-                ]
-            }
-        },
-        {
-            "name": "dr_dur",
-            "mapper": "ThermalStorage",
-            "uo_measure": "add_central_ice_storage",
-            "display_name": "central_ice_storage dr_dur",
-            "display_name_short": "central_ice_storage_dr_dur",
-            "variable_type": "variable",
-            "value_type": "double",
-            "default_value": 1,
-            "value": 1,
-            "minimum": 1,
-            "maximum": 6,
-            "static_value": 3.0,
-            "uuid": "",
-            "version_uuid": "",
-            "variable": true,
-            "uncertainty_description": {
-                "type": "uniform",
-                "attributes": [
-                    {
-                        "name": "lower_bounds",
-                        "value": 1
-                    },
-                    {
-                        "name": "upper_bounds",
-                        "value": 6
-                    },
-                    {
-                        "name": "modes",
-                        "value": 3.0
                     },
                     {
                         "name": "delta_x",
