@@ -161,6 +161,42 @@
         "visualize": true,
         "export": true,
         "variable_type": "double"
+      },
+      {
+        "objective_function": true,
+        "objective_function_index": 8,
+        "objective_function_target": 0,
+        "objective_function_group": 9,
+        "scaling_factor": null,
+        "display_name": "storage_size_kw",
+        "display_name_short": "storage_size_kw",
+        "metadata_id": null,
+        "report_file": "reopt/scenario_report_thermalstorage_scenario_reopt_run",
+        "report": "reopt_report",
+        "report_id": "",
+        "reopt_category": "Storage",
+        "var_name": "size_kw",
+        "visualize": true,
+        "export": true,
+        "variable_type": "double"
+      },
+      {
+        "objective_function": true,
+        "objective_function_index": 9,
+        "objective_function_target": 0,
+        "objective_function_group": 10,
+        "scaling_factor": null,
+        "display_name": "storage_size_kwh",
+        "display_name_short": "storage_size_kwh",
+        "metadata_id": null,
+        "report_file": "reopt/scenario_report_thermalstorage_scenario_reopt_run",
+        "report": "reopt_report",
+        "report_id": "",
+        "reopt_category": "Storage",
+        "var_name": "size_kwh",
+        "visualize": true,
+        "export": true,
+        "variable_type": "double"
       }
     ],
     "problem": {
@@ -394,7 +430,7 @@
             "water_qbft"
         ]
       },
-      "analysis_type": "lhs"
+      "analysis_type": "single_run"
     },
     "file_format_version": 1,
     "cli_debug": "--debug",
