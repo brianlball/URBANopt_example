@@ -239,7 +239,7 @@
             "water_qbft"
         ]
       },
-      "analysis_type": "nsga_nrel"
+      "analysis_type": "lhs"
     },
     "file_format_version": 1,
     "cli_debug": "--debug",
