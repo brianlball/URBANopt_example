@@ -22,7 +22,7 @@
     <argument>
       <name>category_key</name>
       <display_name>category_key</display_name>
-      <description>json category_key (no colon), ex: Financial</description>
+      <description>json category_key (no colon), ex: Storage</description>
       <type>String</type>
       <required>true</required>
       <model_dependent>false</model_dependent>
@@ -30,7 +30,15 @@
     <argument>
       <name>sub_category_key</name>
       <display_name>sub_category_key</display_name>
-      <description>json sub_category_key (no colon), ex: analysis_years</description>
+      <description>json sub_category_key (no colon), ex: installed_cost_us_dollars_per_kw</description>
+      <type>String</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+    </argument>
+    <argument>
+      <name>related_sub_category_key</name>
+      <display_name>related_sub_category_key</display_name>
+      <description>additional related key to the sub key</description>
       <type>String</type>
       <required>true</required>
       <model_dependent>false</model_dependent>

@@ -35,16 +35,23 @@ class UrbanOptReopt < OpenStudio::Measure::ModelMeasure
     # category_key
     category_key = OpenStudio::Measure::OSArgument.makeStringArgument('category_key', true)
     category_key.setDisplayName('category_key')
-    category_key.setDescription('json category_key (no colon), ex: Financial')
-    category_key.setDefaultValue('Financial')
+    category_key.setDescription('json category_key (no colon), ex: Storage')
+    category_key.setDefaultValue('Storage')
     args << category_key
     
     # sub_category_key
     sub_category_key = OpenStudio::Measure::OSArgument.makeStringArgument('sub_category_key', true)
     sub_category_key.setDisplayName('sub_category_key')
-    sub_category_key.setDescription('json sub_category_key (no colon), ex: analysis_years')
-    sub_category_key.setDefaultValue('analysis_years')
+    sub_category_key.setDescription('json sub_category_key (no colon), ex: installed_cost_us_dollars_per_kw')
+    sub_category_key.setDefaultValue('installed_cost_us_dollars_per_kw')
     args << sub_category_key
+    
+    # related_sub_category_key
+    related_sub_category_key = OpenStudio::Measure::OSArgument.makeStringArgument('related_sub_category_key', true)
+    related_sub_category_key.setDisplayName('related_sub_category_key')
+    related_sub_category_key.setDescription('additional related key to the sub key')
+    related_sub_category_key.setDefaultValue('installed_cost_us_dollars_per_kwh')
+    args << related_sub_category_key
     
     # value
     value = OpenStudio::Measure::OSArgument.makeDoubleArgument('value', true)
@@ -70,6 +77,7 @@ class UrbanOptReopt < OpenStudio::Measure::ModelMeasure
     value = runner.getDoubleArgumentValue('value', user_arguments)
     category_key = runner.getStringArgumentValue('category_key', user_arguments)
     sub_category_key = runner.getStringArgumentValue('sub_category_key', user_arguments)
+    related_sub_category_key = runner.getStringArgumentValue('sub_category_key', user_arguments)
     found = false
     
     #TODO try and get simulation_dir value
@@ -95,6 +103,14 @@ class UrbanOptReopt < OpenStudio::Measure::ModelMeasure
             runner.registerInfo("scenario_file[:Scenario][:Site][category_key.to_sym][sub_category_key.to_sym]: #{scenario_file[:Scenario][:Site][category_key.to_sym][sub_category_key.to_sym]}")
             found = true
           end
+          if ((related_sub_category_key == 'installed_cost_us_dollars_per_kwh') && (found == true))
+            if sub_category[0] == related_sub_category_key.to_sym
+              runner.registerInfo("related_sub_category_key found: #{related_sub_category_key}, change value to: #{value/8760}")
+              scenario_file[:Scenario][:Site][category_key.to_sym][related_sub_category_key.to_sym] = value / 8760
+              runner.registerInfo("scenario_file[:Scenario][:Site][category_key.to_sym][related_sub_category_key.to_sym]: #{scenario_file[:Scenario][:Site][category_key.to_sym][related_sub_category_key.to_sym]}")
+              found = true
+            end
+          end  
         end
       end
     end
