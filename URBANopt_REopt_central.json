@@ -371,7 +371,9 @@
             "time_setpoint_not_met_during_occupied_cooling",
             "time_setpoint_not_met_during_occupied_heating",
             "time_setpoint_not_met_during_occupied_hours",
-            "water_qbft"
+            "water_qbft",
+            "storage_size_kw",
+            "storage_size_kwh"
         ]
       },
       "analysis_type": "morris"
@@ -554,48 +556,6 @@
             }
         },
         {
-            "name": "inter_sp",
-            "mapper": "ThermalStorage",
-            "uo_measure": "add_central_ice_storage",
-            "display_name": "central_ice_storage inter_sp",
-            "display_name_short": "central_ice_storage_inter_sp",
-            "variable_type": "variable",
-            "value_type": "double",
-            "default_value": 1,
-            "value": 1,
-            "minimum": 45,
-            "maximum": 50,
-            "static_value": 47.0,
-            "uuid": "",
-            "version_uuid": "",
-            "variable": true,
-            "uncertainty_description": {
-                "type": "uniform",
-                "attributes": [
-                    {
-                        "name": "lower_bounds",
-                        "value": 45
-                    },
-                    {
-                        "name": "upper_bounds",
-                        "value": 50
-                    },
-                    {
-                        "name": "modes",
-                        "value": 47
-                    },
-                    {
-                        "name": "delta_x",
-                        "value": 30
-                    },
-                    {
-                        "name": "stddev",
-                        "value": 26.6667
-                    }
-                ]
-            }
-        },
-        {
             "name": "chg_sp",
             "mapper": "ThermalStorage",
             "uo_measure": "add_central_ice_storage",
@@ -625,48 +585,6 @@
                     {
                         "name": "modes",
                         "value": 25.0
-                    },
-                    {
-                        "name": "delta_x",
-                        "value": 30
-                    },
-                    {
-                        "name": "stddev",
-                        "value": 26.6667
-                    }
-                ]
-            }
-        },
-        {
-            "name": "dr_dur",
-            "mapper": "ThermalStorage",
-            "uo_measure": "add_central_ice_storage",
-            "display_name": "central_ice_storage dr_dur",
-            "display_name_short": "central_ice_storage_dr_dur",
-            "variable_type": "variable",
-            "value_type": "double",
-            "default_value": 1,
-            "value": 1,
-            "minimum": 1,
-            "maximum": 6,
-            "static_value": 3.0,
-            "uuid": "",
-            "version_uuid": "",
-            "variable": true,
-            "uncertainty_description": {
-                "type": "uniform",
-                "attributes": [
-                    {
-                        "name": "lower_bounds",
-                        "value": 1
-                    },
-                    {
-                        "name": "upper_bounds",
-                        "value": 6
-                    },
-                    {
-                        "name": "modes",
-                        "value": 3.0
                     },
                     {
                         "name": "delta_x",
