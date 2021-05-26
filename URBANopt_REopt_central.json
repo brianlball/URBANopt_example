@@ -171,7 +171,7 @@
         "display_name": "storage_size_kw",
         "display_name_short": "storage_size_kw",
         "metadata_id": null,
-        "report_file": "reopt/scenario_report_thermalstorage_scenario_reopt_run",
+        "report_file": "",
         "report": "reopt_report",
         "report_id": "",
         "reopt_category": "Storage",
@@ -189,11 +189,47 @@
         "display_name": "storage_size_kwh",
         "display_name_short": "storage_size_kwh",
         "metadata_id": null,
-        "report_file": "reopt/scenario_report_thermalstorage_scenario_reopt_run",
+        "report_file": "",
         "report": "reopt_report",
         "report_id": "",
         "reopt_category": "Storage",
         "var_name": "size_kwh",
+        "visualize": true,
+        "export": true,
+        "variable_type": "double"
+      },
+      {
+        "objective_function": true,
+        "objective_function_index": 10,
+        "objective_function_target": 0,
+        "objective_function_group": 11,
+        "scaling_factor": null,
+        "display_name": "year_one_bill_us_dollars",
+        "display_name_short": "year_one_bill_us_dollars",
+        "metadata_id": null,
+        "report_file": "",
+        "report": "reopt_report",
+        "report_id": "",
+        "reopt_category": "ElectricTariff",
+        "var_name": "year_one_bill_us_dollars",
+        "visualize": true,
+        "export": true,
+        "variable_type": "double"
+      },
+      {
+        "objective_function": true,
+        "objective_function_index": 11,
+        "objective_function_target": 0,
+        "objective_function_group": 12,
+        "scaling_factor": null,
+        "display_name": "year_one_energy_cost_us_dollars",
+        "display_name_short": "year_one_energy_cost_us_dollars",
+        "metadata_id": null,
+        "report_file": "",
+        "report": "reopt_report",
+        "report_id": "",
+        "reopt_category": "ElectricTariff",
+        "var_name": "year_one_energy_cost_us_dollars",
         "visualize": true,
         "export": true,
         "variable_type": "double"
@@ -241,14 +277,6 @@
               "value_type": "string",
               "default_value": "installed_cost_us_dollars_per_kw",
               "value": "installed_cost_us_dollars_per_kw"
-            },
-            {
-              "display_name": "related_sub_category_key",
-              "display_name_short": "related_sub_category_key",
-              "name": "related_sub_category_key",
-              "value_type": "string",
-              "default_value": "installed_cost_us_dollars_per_kwh",
-              "value": "installed_cost_us_dollars_per_kwh"
             }
           ],
           "variables": [
@@ -264,7 +292,7 @@
               "display_name": "value",
               "display_name_short": "value",
               "variable_type": "variable",
-              "minimum": 0,
+              "minimum": 400,
               "maximum": 1680,
               "static_value": 1000,
               "uuid": "",
@@ -275,7 +303,7 @@
                 "attributes": [
                   {
                     "name": "lower_bounds",
-                    "value": 0
+                    "value": 400
                   },
                   {
                     "name": "upper_bounds",
@@ -299,6 +327,97 @@
             }
           ],
           "workflow_index": 0
+        },
+        {
+          "name": "urban_opt_reopt",
+          "display_name": "UrbanOpt Reopt",
+          "measure_type": "RubyMeasure",
+          "measure_definition_class_name": "UrbanOptReopt",
+          "measure_definition_directory": "./measures/urban_opt_reopt",
+          "measure_definition_directory_local": "C:\\Projects\\OS-PAT-export\\sample_projects\\SEB_calibration_NSGA_2013\\measures\\ReduceElectricEquipmentLoadsByPercentage",
+          "measure_definition_display_name": "UrbanOptReopt",
+          "measure_definition_name": "urban_opt_reopt",
+          "measure_definition_name_xml": null,
+          "measure_definition_uuid": "07a76483-233f-4be7-8f94-d1187bd3c34e",
+          "measure_definition_version_uuid": "00383259-b9c0-4425-996a-838af1101c3d",
+          "uuid": "07a76483-233f-4be7-8f94-d1187bd3c34e",
+          "version_uuid": "00383259-b9c0-4425-996a-838af1101c3d",
+          "description": "Change UrbanOpt Space percentages",
+          "taxonomy": "Whole Building.Space Types",
+          "arguments": [
+            {
+              "display_name": "scenario_file_name",
+              "display_name_short": "scenario_file_name",
+              "name": "scenario_file_name",
+              "value_type": "string",
+              "default_value": "base_assumptions",
+              "value": "multiPV_assumptions"
+            },
+            {
+              "display_name": "category_key",
+              "display_name_short": "category_key",
+              "name": "category_key",
+              "value_type": "string",
+              "default_value": "Storage",
+              "value": "Storage"
+            },
+            {
+              "display_name": "sub_category_key",
+              "display_name_short": "sub_category_key",
+              "name": "sub_category_key",
+              "value_type": "string",
+              "default_value": "installed_cost_us_dollars_per_kwh",
+              "value": "installed_cost_us_dollars_per_kwh"
+            }
+          ],
+          "variables": [
+            {
+              "argument": {
+              "display_name": "value",
+              "display_name_short": "value",
+              "name": "value",
+              "value_type": "double",
+              "default_value": 420,
+              "value": 0
+              },
+              "display_name": "value",
+              "display_name_short": "value",
+              "variable_type": "variable",
+              "minimum": 200,
+              "maximum": 840,
+              "static_value": 500,
+              "uuid": "",
+              "version_uuid": "",
+              "variable": true,
+              "uncertainty_description": {
+                "type": "uniform",
+                "attributes": [
+                  {
+                    "name": "lower_bounds",
+                    "value": 200
+                  },
+                  {
+                    "name": "upper_bounds",
+                    "value": 840
+                  },
+                  {
+                    "name": "modes",
+                    "value": 420
+                  },
+                  {
+                    "name": "delta_x",
+                    "value": 0
+                  },
+                  {
+                    "name": "stddev",
+                    "value": 26.6667
+                  }
+                ]
+              },
+              "workflow_index": 0
+            }
+          ],
+          "workflow_index": 1
         },
         {
           "name": "urban_opt_scenarios",
@@ -334,7 +453,7 @@
                 "value": "5"
             }
           ],
-          "workflow_index": 1
+          "workflow_index": 2
         }
       ],
       "algorithm": {
@@ -373,7 +492,9 @@
             "time_setpoint_not_met_during_occupied_hours",
             "water_qbft",
             "storage_size_kw",
-            "storage_size_kwh"
+            "storage_size_kwh",
+            "year_one_bill_us_dollars",
+            "year_one_energy_cost_us_dollars"
         ]
       },
       "analysis_type": "morris"
