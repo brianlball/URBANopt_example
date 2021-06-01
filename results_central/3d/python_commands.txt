@@ -54,3 +54,6 @@ fig6.show()
 
 fig7 = px.scatter_3d(df, x=df.installed_cost_us_dollars_per_kwh, y=df.storage_capacity, z=df.electricity_kwh, color=df.electricity_kwh)
 fig7.show()
+
+fig8 = px.scatter_3d(df, x=df.chiller_resize_factor, y=df.storage_capacity, z=df.size_kw, color=df.electricity_kwh)
+fig8.show()
