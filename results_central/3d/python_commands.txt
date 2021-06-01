@@ -1,0 +1,56 @@
+#outputs
+electricity_kwh
+natural_gas_kwh
+comfort_result_hours_out_of_comfort_bounds_PMV
+size_kw
+size_kwh
+year_one_energy_cost_us_dollars
+year_one_bill_us_dollars
+water_qbft
+
+#inputs
+chg_sp
+chiller_resize_factor
+chiller_limit
+installed_cost_us_dollars_per_kw
+installed_cost_us_dollars_per_kwh
+loop_sp
+storage_capacity
+
+
+
+import os
+os.chdir('c:\\Projects\\urbanopt_example\\results_central')
+
+import pandas as pd
+df = pd.read_csv('URBANopt_REopt_format_zeros.csv')
+df.head()
+
+import plotly.express as px
+fig = px.scatter_3d(df, x=df.installed_cost_us_dollars_per_kw, y=df.storage_capacity, z=df.year_one_bill_us_dollars, color=df.year_one_bill_us_dollars)
+fig.show()
+
+fig1 = px.scatter_3d(df, x=df.installed_cost_us_dollars_per_kw, y=df.storage_capacity, z=df.electricity_kwh, color=df.electricity_kwh)
+fig1.show()
+
+fig2 = px.scatter_3d(df, x=df.installed_cost_us_dollars_per_kw, y=df.storage_capacity, z=df.size_kw, color=df.size_kw)
+fig2.show()
+
+fig3 = px.scatter_3d(df, x=df.installed_cost_us_dollars_per_kw, y=df.storage_capacity, z=df.size_kw, color=df.size_kw)
+fig3.show()
+
+fig3 = px.scatter_3d(df, x=df.installed_cost_us_dollars_per_kwh, y=df.storage_capacity, z=df.size_kwh, color=df.size_kw)
+fig3.show()
+
+fig4 = px.scatter_3d(df, x=df.chiller_limit, y=df.storage_capacity, z=df.electricity_kwh, color=df.electricity_kwh)
+fig4.show()
+
+
+fig5 = px.scatter_3d(df, x=df.chiller_resize_factor, y=df.storage_capacity, z=df.electricity_kwh, color=df.electricity_kwh)
+fig5.show()
+
+fig6 = px.scatter_3d(df, x=df.chiller_resize_factor, y=df.storage_capacity, z=df.size_kw, color=df.size_kw)
+fig6.show()
+
+fig7 = px.scatter_3d(df, x=df.installed_cost_us_dollars_per_kwh, y=df.storage_capacity, z=df.electricity_kwh, color=df.electricity_kwh)
+fig7.show()
