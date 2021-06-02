@@ -57,3 +57,15 @@ fig7.show()
 
 fig8 = px.scatter_3d(df, x=df.chiller_resize_factor, y=df.storage_capacity, z=df.size_kw, color=df.electricity_kwh)
 fig8.show()
+
+fig9 = px.scatter_3d(df, x=df.chiller_resize_factor, y=df.storage_capacity, z=df.size_kw, color=df.electricity_kwh)
+fig9.show()
+
+fig10 = px.scatter_3d(df, x=df.chiller_resize_factor, y=df.storage_capacity, z=df.size_kw, color=df.year_one_bill_us_dollars)
+fig10.show()
+
+fig11 = px.scatter_3d(df, x=df.chiller_resize_factor, y=df.storage_capacity, z=df.electricity_kwh, color=df.year_one_bill_us_dollars)
+fig11.show()
+
+fig12 = px.scatter_3d(df, x=df.chiller_resize_factor, y=df.storage_capacity, z=df.comfort_result_hours_out_of_comfort_bounds_PMV, color=df.year_one_bill_us_dollars)
+fig12.show()
