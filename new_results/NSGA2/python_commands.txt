@@ -1,0 +1,59 @@
+#outputs
+electricity_kwh
+natural_gas_kwh
+comfort_result_hours_out_of_comfort_bounds_PMV
+size_kw
+size_kwh
+year_one_energy_cost_us_dollars
+year_one_bill_us_dollars
+water_qbft
+
+#inputs
+chg_sp
+chiller_limit
+installed_cost_us_dollars_per_kw (reopt.value)
+installed_cost_us_dollars_per_kwh (reopt2.value)
+loop_sp
+storage_capacity
+
+
+
+import os
+os.chdir('c:\\Projects\\urbanopt_example\\new_results\\NSGA2')
+
+import pandas as pd
+df = pd.read_csv('URBANopt_REopt_new_NSGA_660.csv')
+df.head()
+
+import plotly.express as px
+fig = px.scatter_3d(df, x=df.size_kwh, y=df.storage_capacity, z=df.electricity_kwh, color=df.year_one_bill_us_dollars)
+fig.show()
+
+fig1 = px.scatter_3d(df, x=df.size_kwh, y=df.storage_capacity, z=df.electricity_kwh, color=df.installed_cost_us_dollars_per_kwh)
+fig1.show()
+
+fig2 = px.scatter_3d(df, x=df.size_kwh, y=df.storage_capacity, z=df.electricity_kwh, color=df.comfort_result_hours_out_of_comfort_bounds_PMV)
+fig2.show()
+
+fig3 = px.scatter_3d(df, x=df.size_kwh, y=df.storage_capacity, z=df.natural_gas_kwh, color=df.year_one_bill_us_dollars)
+fig3.show()
+
+fig4 = px.scatter_3d(df, x=df.size_kwh, y=df.storage_capacity, z=df.natural_gas_kwh, color=df.installed_cost_us_dollars_per_kwh)
+fig4.show()
+
+fig5 = px.scatter_3d(df, x=df.size_kwh, y=df.storage_capacity, z=df.natural_gas_kwh, color=df.comfort_result_hours_out_of_comfort_bounds_PMV)
+fig5.show()
+
+fig6 = px.scatter_3d(df, x=df.size_kwh, y=df.storage_capacity, z=df.comfort_result_hours_out_of_comfort_bounds_PMV, color=df.size_kw)
+fig6.show()
+
+fig7 = px.scatter_3d(df, x=df.size_kwh, y=df.storage_capacity, z=df.size_kw, color=df.size_kw)
+fig7.show()
+
+fig8 = px.scatter_3d(df, x=df.size_kwh, y=df.storage_capacity, z=df.year_one_energy_cost_us_dollars, color=df.size_kw)
+fig8.show()
+
+fig9 = px.scatter_3d(df, x=df.size_kwh, y=df.storage_capacity, z=df.year_one_bill_us_dollars, color=df.electricity_kwh)
+fig9.show()
+
+
