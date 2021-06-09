@@ -56,4 +56,39 @@ fig8.show()
 fig9 = px.scatter_3d(df, x=df.size_kwh, y=df.storage_capacity, z=df.year_one_bill_us_dollars, color=df.electricity_kwh)
 fig9.show()
 
+import os
+import pandas as pd
+import seaborn as sns
+import numpy as np
+import matplotlib.pyplot as plt
 
+os.chdir('c:\\Projects\\urbanopt_example\\new_results\\LHS')
+df_pw = pd.read_csv('URBANopt_REopt_new_LHS_pairwise.csv')
+df_pw.head()
+
+sns.pairplot(df_pw)
+
+sns.set()
+g = sns.pairplot(df_pw)
+for axes in g.axes.flat:
+     axes.set_ylabel(axes.get_ylabel(), rotation=0, horizontalalignment='right')
+plt.show()
+
+g = sns.PairGrid(df_pw)
+g = g.map(plt.scatter)
+
+xlabels,ylabels = [],[]
+
+for ax in g.axes[-1,:]:
+    xlabel = ax.xaxis.get_label_text()
+    xlabels.append(xlabel)
+for ax in g.axes[:,0]:
+    ylabel = ax.yaxis.get_label_text()
+    ylabels.append(ylabel)
+
+for i in range(len(xlabels)):
+    for j in range(len(ylabels)):
+        g.axes[j,i].xaxis.set_label_text(xlabels[i])
+        g.axes[j,i].yaxis.set_label_text(ylabels[j])
+
+plt.show()
