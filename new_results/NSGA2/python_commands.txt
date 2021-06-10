@@ -63,7 +63,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 os.chdir('c:\\Projects\\urbanopt_example\\new_results\\LHS')
-df_pw = pd.read_csv('URBANopt_REopt_new_LHS_pairwise.csv')
+df_pw = pd.read_csv('URBANopt_REopt_new_LHS_pairwise_reduced.csv')
 df_pw.head()
 
 sns.pairplot(df_pw)
