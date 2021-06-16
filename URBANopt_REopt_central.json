@@ -108,38 +108,33 @@
         "objective_function_target": 0,
         "objective_function_group": 6,
         "scaling_factor": null,
-        "display_name": "not met heating",
-        "display_name_short": "not met heating",
+        "display_name": "total_solar_pv_kw",
+        "display_name_short": "total_solar_pv_kw",
         "metadata_id": null,
-        "report_file": "default_scenario_report",
+        "report_file": "scenario_optimization",
         "report": "scenario_report",
         "report_id": "",
-        "reporting_periods": 0,
-        "var_name": "comfort_result",
+        "var_name": "distributed_generation",
         "end_use": "",
-        "end_use_category": "",
-        "comfort_result_category": "time_setpoint_not_met_during_occupied_heating",
+        "distributed_generation_category": "total_solar_pv_kw",
         "visualize": true,
         "export": true,
         "variable_type": "double"
       },
-      {
+{
         "objective_function": true,
         "objective_function_index": 6,
         "objective_function_target": 0,
         "objective_function_group": 7,
         "scaling_factor": null,
-        "display_name": "not met occupied",
-        "display_name_short": "not met occupied",
+        "display_name": "year_one_energy_supplied_kwh",
+        "display_name_short": "year_one_energy_supplied_kwh",
         "metadata_id": null,
-        "report_file": "default_scenario_report",
-        "report": "scenario_report",
+        "report_file": "",
+        "report": "reopt_report",
         "report_id": "",
-        "reporting_periods": 0,
-        "var_name": "comfort_result",
-        "end_use": "",
-        "end_use_category": "",
-        "comfort_result_category": "time_setpoint_not_met_during_occupied_hours",
+        "reopt_category": "ElectricTariff",
+        "var_name": "year_one_energy_supplied_kwh",
         "visualize": true,
         "export": true,
         "variable_type": "double"
@@ -233,6 +228,24 @@
         "visualize": true,
         "export": true,
         "variable_type": "double"
+      },
+      {
+        "objective_function": true,
+        "objective_function_index": 12,
+        "objective_function_target": 0,
+        "objective_function_group": 13,
+        "scaling_factor": null,
+        "display_name": "year_one_demand_cost_us_dollars",
+        "display_name_short": "year_one_demand_cost_us_dollars",
+        "metadata_id": null,
+        "report_file": "",
+        "report": "reopt_report",
+        "report_id": "",
+        "reopt_category": "ElectricTariff",
+        "var_name": "year_one_demand_cost_us_dollars",
+        "visualize": true,
+        "export": true,
+        "variable_type": "double"
       }
     ],
     "problem": {
@@ -282,15 +295,15 @@
           "variables": [
             {
               "argument": {
-              "display_name": "value",
-              "display_name_short": "value",
+              "display_name": "installed_cost_us_dollars_per_kw",
+              "display_name_short": "installed_cost_us_dollars_per_kw",
               "name": "value",
               "value_type": "double",
               "default_value": 840,
               "value": 0
               },
-              "display_name": "value",
-              "display_name_short": "value",
+              "display_name": "installed_cost_us_dollars_per_kw",
+              "display_name_short": "installed_cost_us_dollars_per_kw",
               "variable_type": "variable",
               "minimum": 400,
               "maximum": 1680,
@@ -329,8 +342,8 @@
           "workflow_index": 0
         },
         {
-          "name": "urban_opt_reopt",
-          "display_name": "UrbanOpt Reopt",
+          "name": "urban_opt_reopt2",
+          "display_name": "UrbanOpt Reopt2",
           "measure_type": "RubyMeasure",
           "measure_definition_class_name": "UrbanOptReopt",
           "measure_definition_directory": "./measures/urban_opt_reopt",
@@ -373,15 +386,15 @@
           "variables": [
             {
               "argument": {
-              "display_name": "value",
-              "display_name_short": "value",
+              "display_name": "installed_cost_us_dollars_per_kwh",
+              "display_name_short": "installed_cost_us_dollars_per_kwh",
               "name": "value",
               "value_type": "double",
               "default_value": 420,
               "value": 0
               },
-              "display_name": "value",
-              "display_name_short": "value",
+              "display_name": "installed_cost_us_dollars_per_kwh",
+              "display_name_short": "installed_cost_us_dollars_per_kwh",
               "variable_type": "variable",
               "minimum": 200,
               "maximum": 840,
@@ -462,15 +475,15 @@
         "order": 1,
         "nboot": 10,
         "conf": 0.95,
-        "type": "oat",
+        "type": "sobol",
         "r": 4,
         "r_2": 6,
         "levels": 4,
         "grid_jump": 2,
-        "number_of_samples": 50,
+        "number_of_samples": 60,
         "sample_method": "all_variables",
-        "generations": 1,
-        "tournament_size": 2,
+        "generations": 10,
+        "tournament_size": 20,
         "cprob": 0.85,
         "xover_dist_idx": 5,
         "mu_dist_idx": 5,
@@ -479,7 +492,7 @@
         "p_power": 2,
         "exit_on_guideline_14": 0,
         "seed": 1973,
-        "failed_f_value": 1000000000000000000,
+        "failed_f_value": 0,
         "debug_messages": 1,
         "max_queued_jobs": 42,
         "objective_functions": [
@@ -488,16 +501,17 @@
             "electricity_produced_kwh",
             "hours_out_of_comfort_bounds_PMV",
             "time_setpoint_not_met_during_occupied_cooling",
-            "time_setpoint_not_met_during_occupied_heating",
-            "time_setpoint_not_met_during_occupied_hours",
+            "total_solar_pv_kw",
+            "year_one_energy_supplied_kwh",
             "water_qbft",
             "storage_size_kw",
             "storage_size_kwh",
             "year_one_bill_us_dollars",
-            "year_one_energy_cost_us_dollars"
+            "year_one_energy_cost_us_dollars",
+            "year_one_demand_cost_us_dollars"
         ]
       },
-      "analysis_type": "morris"
+      "analysis_type": "nsga_nrel"
     },
     "file_format_version": 1,
     "cli_debug": "--debug",
@@ -516,11 +530,11 @@
             "display_name_short": "central_ice_storage_capacity",
             "variable_type": "variable",
             "value_type": "double",
-            "default_value": 6000,
+            "default_value": 25000,
             "value": 6000,
-            "minimum": 500,
-            "maximum": 8000,
-            "static_value": 6000,
+            "minimum": 5000,
+            "maximum": 40000,
+            "static_value": 40000,
             "uuid": "",
             "version_uuid": "",
             "variable": true,
@@ -529,57 +543,15 @@
                 "attributes": [
                     {
                         "name": "lower_bounds",
-                        "value": 500
+                        "value": 5000
                     },
                     {
                         "name": "upper_bounds",
-                        "value": 8000
+                        "value": 40000
                     },
                     {
                         "name": "modes",
-                        "value": 6000
-                    },
-                    {
-                        "name": "delta_x",
-                        "value": 30
-                    },
-                    {
-                        "name": "stddev",
-                        "value": 26.6667
-                    }
-                ]
-            }
-        },
-        {
-            "name": "chiller_resize_factor",
-            "mapper": "ThermalStorage",
-            "uo_measure": "add_central_ice_storage",
-            "display_name": "central_ice_storage chiller_resize_factor",
-            "display_name_short": "central_ice_storage_chiller_resize_factor",
-            "variable_type": "variable",
-            "value_type": "double",
-            "default_value": 1,
-            "value": 1,
-            "minimum": 0.1,
-            "maximum": 4,
-            "static_value": 1,
-            "uuid": "",
-            "version_uuid": "",
-            "variable": true,
-            "uncertainty_description": {
-                "type": "uniform",
-                "attributes": [
-                    {
-                        "name": "lower_bounds",
-                        "value": 0.1
-                    },
-                    {
-                        "name": "upper_bounds",
-                        "value": 4
-                    },
-                    {
-                        "name": "modes",
-                        "value": 1
+                        "value": 1000
                     },
                     {
                         "name": "delta_x",

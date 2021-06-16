@@ -2,8 +2,8 @@
 electricity_kwh
 natural_gas_kwh
 comfort_result_hours_out_of_comfort_bounds_PMV
-size_kw
-size_kwh
+size_kw (battery)
+size_kwh (battery)
 year_one_energy_cost_us_dollars
 year_one_bill_us_dollars
 water_qbft
@@ -15,7 +15,7 @@ chiller_limit
 installed_cost_us_dollars_per_kw
 installed_cost_us_dollars_per_kwh
 loop_sp
-storage_capacity
+storage_capacity  (central_ice_storage)
 
 
 

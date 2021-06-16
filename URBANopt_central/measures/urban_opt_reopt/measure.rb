@@ -105,8 +105,8 @@ class UrbanOptReopt < OpenStudio::Measure::ModelMeasure
           end
           if ((related_sub_category_key == 'installed_cost_us_dollars_per_kwh') && (found == true))
             if sub_category[0] == related_sub_category_key.to_sym
-              runner.registerInfo("related_sub_category_key found: #{related_sub_category_key}, change value to: #{value/8760}")
-              scenario_file[:Scenario][:Site][category_key.to_sym][related_sub_category_key.to_sym] = value / 8760
+              runner.registerInfo("related_sub_category_key found: #{related_sub_category_key}, change value to: #{value/2}")
+              scenario_file[:Scenario][:Site][category_key.to_sym][related_sub_category_key.to_sym] = value / 2
               runner.registerInfo("scenario_file[:Scenario][:Site][category_key.to_sym][related_sub_category_key.to_sym]: #{scenario_file[:Scenario][:Site][category_key.to_sym][related_sub_category_key.to_sym]}")
               found = true
             end
